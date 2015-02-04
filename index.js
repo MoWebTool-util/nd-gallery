@@ -99,7 +99,8 @@ var Gallery = module.exports = Overlay.extend({
   _resizeThumbs: function() {
     this.$('[data-role=thumb]').each(function(i, img) {
       ndImage.load({
-        url: img.src,
+        node: img,
+        // url: img.src,
 
         ready: function() {
           // 缩放
