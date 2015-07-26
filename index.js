@@ -14,14 +14,15 @@ var Gallery = Overlay.extend({
 
   attrs: {
     template: require('./src/gallery.handlebars'),
+    partial: require('./src/partial.handlebars'),
 
     align: null,
 
     position: 'fixed',
 
     classPrefix: 'ui-gallery',
+    items: null,
     index: 0,
-    items: [],
 
     events: {
       'keyup': 'close',
@@ -30,15 +31,6 @@ var Gallery = Overlay.extend({
       'click [data-role="next"]': 'next',
       'click [data-role="thumb"]': 'switchTo'
     }
-  },
-
-  initAttrs: function(config) {
-    Gallery.superclass.initAttrs.call(this, config);
-
-    this.set('model', {
-      index: this.get('index'),
-      items: this.get('items')
-    });
   },
 
   close: function(e) {
@@ -71,11 +63,36 @@ var Gallery = Overlay.extend({
     this.set('index', num);
   },
 
+  renderPartial: function(items) {
+    var index = this.get('index');
+
+    this.$('[data-role="content"]').html(
+      this.get('partial')({
+        index: index,
+        items: items
+      })
+    );
+
+    this.set('index', -1, {
+      silent: true
+    });
+
+    this.set('index', index);
+  },
+
+  _onRenderItems: function(items) {
+    this.renderPartial(items);
+  },
+
   _onRenderIndex: function(index) {
     var items = this.get('items');
 
     if (!items.length) {
       return;
+    }
+
+    if (index >= items.length) {
+      index = items.length - 1;
     }
 
     // 原图

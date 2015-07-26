@@ -1,24 +1,4 @@
 <div class="{{classPrefix}}" tabindex="-1">
   <div class="content" data-role="content">
-    <a class="close" href="javascript:;" data-role="close" title="关闭">×</a>
-    <a class="origin" href="javascript:;" data-role="origin" title="原图" target="_blank">原图</a>
-    <div class="image-wrap" data-role="image-wrap">
-      <img class="image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" data-role="image" alt="">
-      <div class="iconfont iconfont-prev prev-btn" data-role="prev"></div>
-      <div class="iconfont iconfont-next next-btn" data-role="next"></div>
-    </div>
-    <div class="title-wrap" data-role="title-wrap">
-      <div class="index">
-        <span data-role="index">0</span> / <span data-role="total">{{items.length}}</span>
-      </div>
-    </div>
-    <div class="thumbs-wrap">
-      <div class="iconfont iconfont-prev prev-btn" data-role="prev"></div>
-      <div class="iconfont iconfont-next next-btn" data-role="next"></div>
-      <ul class="thumbs" data-role="thumbs">
-        {{#each items}}<li><img class="thumb" title="{{title}}" src="{{small}}" data-role="thumb" data-index="{{@index}}" alt=""></li>{{/each}}
-      </ul>
-    </div>
   </div>
 </div>
-
