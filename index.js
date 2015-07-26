@@ -5,10 +5,8 @@
 
 'use strict';
 
-var $ = require('jquery');
 var Overlay = require('nd-overlay');
 var Template = require('nd-template');
-// var ndImage = require('nd-image');
 
 var Gallery = Overlay.extend({
 
@@ -74,14 +72,17 @@ var Gallery = Overlay.extend({
   },
 
   _onRenderIndex: function(index) {
-    var items = this.get('items'),
-      img = this.$('[data-role="image"]')[0];
+    var items = this.get('items');
+
+    if (!items.length) {
+      return;
+    }
 
     // 原图
     this.$('[data-role="origin"]')[0].href = items[index].large;
 
     // 大图
-    img.src = items[index].medium;
+    this.$('[data-role="image"]')[0].src = items[index].medium;
 
     // thumbs
     this.$('[data-role="thumbs"]')
