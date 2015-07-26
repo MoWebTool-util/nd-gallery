@@ -1,21 +1,22 @@
 <div class="{{classPrefix}}" tabindex="-1">
-  <div class="{{classPrefix}}-content" data-role="content">
-    <a class="{{classPrefix}}-close" href="#" data-role="close" title="关闭">×</a>
-    <a class="{{classPrefix}}-origin" href="#" data-role="origin" title="原图" target="_blank">原图</a>
-    <div class="{{classPrefix}}-image-wrap" data-role="image-wrap">
-      <img src="{{items.[0].small}}" alt="" class="{{classPrefix}}-image" data-role="image" />
-      <div class="{{classPrefix}}-prev-btn" data-role="prev"></div>
-      <div class="{{classPrefix}}-next-btn" data-role="next"></div>
+  <div class="content" data-role="content">
+    <a class="close" href="javascript:;" data-role="close" title="关闭">×</a>
+    <a class="origin" href="javascript:;" data-role="origin" title="原图" target="_blank">原图</a>
+    <div class="image-wrap" data-role="image-wrap">
+      <img class="image" src="{{items.[0].small}}" data-role="image" alt="">
+      <div class="iconfont iconfont-prev prev-btn" data-role="prev"></div>
+      <div class="iconfont iconfont-next next-btn" data-role="next"></div>
     </div>
-    <div class="{{classPrefix}}-thumbs-wrap">
-      <div class="{{classPrefix}}-prev-btn" data-role="prev"></div>
-      <div class="{{classPrefix}}-next-btn" data-role="next"></div>
-      <div class="{{classPrefix}}-index">
-        第<span data-role="index">1</span>张
-        （共<span data-role="total">{{items.length}}</span>张）
+    <div class="title-wrap" data-role="title-wrap">
+      <div class="index">
+        第 <span data-role="index">1</span> 张 （共 <span data-role="total">{{items.length}}</span> 张）
       </div>
-      <ul class="{{classPrefix}}-thumbs" data-role="thumbs">
-        {{#each items}}<li><img class="{{../classPrefix}}-thumb" src="{{small}}" data-role="thumb" data-index="{{@index}}" alt="" /></li>{{/each}}
+    </div>
+    <div class="thumbs-wrap">
+      <div class="iconfont iconfont-prev prev-btn" data-role="prev"></div>
+      <div class="iconfont iconfont-next next-btn" data-role="next"></div>
+      <ul class="thumbs" data-role="thumbs">
+        {{#each items}}<li><img class="thumb" title="{{title}}" src="{{small}}" data-role="thumb" data-index="{{@index}}" alt=""></li>{{/each}}
       </ul>
     </div>
   </div>
