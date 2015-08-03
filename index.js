@@ -106,7 +106,7 @@ var Gallery = Overlay.extend({
       .children(':eq(' + index + ')')
       .addClass('current')
       .siblings('.current').removeClass('current')
-      .end().get(0).scrollIntoViewIfNeeded();
+      .end().get(0).scrollIntoView();
 
     // pagination
     this.$('[data-role="index"]').text(index + 1);
