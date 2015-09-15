@@ -105,11 +105,17 @@ var Gallery = Overlay.extend({
     this.$('[data-role="thumbs"]')
       .children(':eq(' + index + ')')
       .addClass('current')
-      .siblings('.current').removeClass('current')
-      .end().get(0).scrollIntoView();
+      .siblings('.current').removeClass('current');
 
     // pagination
     this.$('[data-role="index"]').text(index + 1);
+    
+    this.thumbScroll(index);
+  },
+  
+  thumbScroll: function(index) {
+    index = index || this.get('index');
+    this.$('.thumbs').scrollLeft(this.$('[data-role="thumbs"]').children(':eq(' + index + ')')[0].offsetLeft-8 - this.$('.thumbs-wrap').width()/2);
   }
 
 });
