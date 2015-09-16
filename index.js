@@ -86,6 +86,7 @@ var Gallery = Overlay.extend({
 
   _onRenderIndex: function(index) {
     var items = this.get('items');
+    var $thumbs=  this.$('[data-role="thumbs"]');
 
     if (!items.length) {
       return;
@@ -102,20 +103,25 @@ var Gallery = Overlay.extend({
     this.$('[data-role="image"]')[0].src = items[index].medium;
 
     // thumbs
-    this.$('[data-role="thumbs"]')
+    $thumbs
       .children(':eq(' + index + ')')
       .addClass('current')
       .siblings('.current').removeClass('current');
 
     // pagination
     this.$('[data-role="index"]').text(index + 1);
-    
-    this.thumbScroll(index);
+
+    this.thumbScroll(index,$thumbs);
   },
-  
-  thumbScroll: function(index) {
+
+  thumbScroll: function(index,$thumbs) {
     index = index || this.get('index');
-    this.$('.thumbs').scrollLeft(this.$('[data-role="thumbs"]').children(':eq(' + index + ')')[0].offsetLeft-8 - this.$('.thumbs-wrap').width()/2);
+    $thumbs.scrollLeft
+    (
+      $thumbs
+        .children(':eq(' + index + ')')[0]
+        .offsetLeft -8 - this.$('.thumbs-wrap').width()/2
+    );
   }
 
 });
