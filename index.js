@@ -94,6 +94,7 @@ var Gallery = Overlay.extend({
 
     if (index >= items.length) {
       index = items.length - 1;
+      this.set('index',index);
     }
 
     // 原图
