@@ -117,6 +117,7 @@ var Gallery = Overlay.extend({
 
   thumbScroll: function(index,$thumbs) {
     index = index || this.get('index');
+    $thumbs = $thumbs || this.$('[data-role="thumbs"]');
     $thumbs.scrollLeft
     (
       $thumbs
