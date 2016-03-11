@@ -107,7 +107,7 @@ var Gallery = Overlay.extend({
 
     // thumbs
     thumbs
-      .children(':eq(' + index + ')')
+      .children().eq(index)
       .addClass('current')
       .siblings('.current').removeClass('current')
 
@@ -122,7 +122,7 @@ var Gallery = Overlay.extend({
     thumbs = thumbs || this.$('[data-role="thumbs"]')
     thumbs.scrollLeft(
       thumbs
-      .children(':eq(' + index + ')')[0]
+      .children().get(index)
       .offsetLeft - 8 - this.$('.thumbs-wrap').width() / 2
     )
   }
