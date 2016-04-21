@@ -76,7 +76,7 @@ describe('show/hide', function() {
     gallery.destroy()
   })
   it('show，显示gallery close方法,隐藏gallery', function() {
-    //传入空 显示
+    //传入空值 显示
     renderByType(0)
     $(gallery).trigger('show')
     expect($('.ui-gallery').css('display')).to.equal('block')
@@ -88,7 +88,7 @@ describe('show/hide', function() {
     expect($('.ui-gallery').css('display')).to.equal('block')
     gallery.destroy()
 
-    //传入正常 显示
+    //传入正常值
     renderByType(2)
     $(gallery).trigger('show')
     expect($('.ui-gallery').css('display')).to.equal('block')
@@ -115,7 +115,7 @@ describe('next/prev', function() {
   after(function() {
     gallery.destroy()
   })
-  it('选择上一张下一张某一张 跳转', function() {
+  it('选择上一张下一张某一张正确跳转', function() {
     //两张图片
     renderByType(2)
     var length = $('.thumbs-wrap .thumbs li').length
