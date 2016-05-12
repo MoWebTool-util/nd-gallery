@@ -9,10 +9,9 @@
     "email": "liwenfu@crossjs.com"
   },
   "scripts": {
-    "prepublish": "npm run lint && npm run test",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "node ./node_modules/karma/bin/karma start ./karma.conf.js",
+    "test": "karma start ./karma.conf.js",
     "test:dev": "npm run test -- --watch"
   },
   "repository": {
@@ -32,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^2.9.0",
     "handlebars-loader": "^1.1.4",
     "isparta-loader": "^2.0.0",
     "karma": "^0.13.8",
